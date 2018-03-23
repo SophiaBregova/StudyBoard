@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Template</title>
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="wrapper center-block">
+	<header >
+		<div class="h-center">
+			
+			<button id="sideMenu">
+				<span></span>
+					<p>MENU</p>
+					
+				<span></span>
+			</button>
+				<div class="flex-column">
+				<p>Label</p>
+				<p>Organisation name</p>
+				</div>
+		</div>	
+			<form><input type="text" placeholder="Find" id="searchInput">
+				<label for="#searchInput">
+					<button>
+<svg width="30" height="30">
+  <circle cx="10" cy="10" r="6" stroke=" #c6f8ff" stroke-width="2" fill=" rgba(2,227,255,0.3)"/>
+  <path stroke=" #c6f8ff" stroke-width="2" stroke-linecap="round" d="M15 15 L20 20" />
+  </svg>
+</button>
+				</label>
+			</form>
+		
+	<nav id="sideNav">
+		<button id="closeMenu">MENU
+			<svg width="10" height="20">
+				<polyline points="10 0 0 10 10 20"  style="stroke:white; stroke-width:2; stroke-linecap:round; fill:transparent;" />
+			</svg></button>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li class="outer-menu"><a href="#">Product
+				<svg width="10" height="20">
+				<polyline points="0 0 10 10 0 20"  style="stroke:white; stroke-width:2; stroke-linecap:round; fill:transparent;" /></svg>
+			</a>
+				<ul class="inner-menu">
+					<li><a href="#">Item 1</a></li>
+					<li><a href="#">Item 2</a></li>
+					<li><a href="#">Item 3</a></li>
+				</ul>	
+			</li>
+			<li class="outer-menu"><a href="#">Shops
+				<svg width="10" height="20">
+				<polyline points="0 0 10 10 0 20"  style="stroke:white; stroke-width:2; stroke-linecap:round; fill:transparent;" /></svg>
+			</a>
+				<ul class="inner-menu">
+					<li><a href="#">Item 4</a></li>
+					<li><a href="#">Item 5</a></li>
+					<li><a href="#">Item 6</a></li>
+				</ul>	
+			</li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
+
+	</header>
+	</div>
+	<div class="backColor">
+		<section class="view-height container center-block " id="firstScreen">
+			<div class="flex-column">
+				<h1>Title</h1>
+				<p>Main information</p>
+			</div>
+		</section>
+	</div>
+		<section class="center-block" id="secondScreen">
+			<h2>Our services</h2>
+			<div class="flex-container">
+				<a href="" class="select-img">
+				
+					<img src="images/winter1.jpg" alt="img"/>
+					
+					<div class="info ">
+						
+						<p>Information</p>
+						<span>See more</span>
+						<div class="color-all color1"></div>
+					</div>	
+				
+				</a>
+				
+
+				<a href="" class="select-img">
+					<img src="images/winter2.jpg" alt="img">
+					<div class="info ">
+						
+						<p>Information</p>
+						<span>See more</span>
+						<div class="color-all color2"></div>
+					</div>	
+				</a>
+
+				<a href="" class="select-img">
+					<img src="images/winter3.jpg" alt="img">
+					<div class="info ">
+						
+						<p>Information</p>
+						<span>See more</span>
+						<div class="color-all color2"></div>
+					</div>	
+				</a>
+
+				<a href="" class="select-img">
+					<img src="images/winter4.jpg" alt="img">
+					<div class="info ">
+						
+						<p>Information</p>
+						<span>See more</span>
+						<div class="color-all color1"></div>
+					</div>	
+				</a>
+			</div>
+
+		</section>
+
+
+
+	<script type="text/javascript">
+		window.onload=function(){
+		
+		document.addEventListener("click", handlingClick,false);
+	
+		function handlingClick(e){
+			var productsMenu = document.getElementsByClassName('outer-menu');
+			
+			var innerMenu = document.getElementsByClassName('inner-menu');
+			for (var i = 0; i < innerMenu.length; i++) {
+				innerMenu[i].style.visibility = 'hidden';
+			}
+
+
+
+			for(var i=0;i<productsMenu.length;i++){
+				
+				 if(productsMenu[i] == e.target){	
+						var itemsMenu = productsMenu[i].childNodes;	
+						for (var ii = 0; ii < itemsMenu.length; ii++) {
+							if (itemsMenu[ii].tagName == "UL"){
+								itemsMenu[ii].style.visibility="visible";
+								break;
+							}//if
+						}//for
+							
+				}//if
+			}//for
+		}//handlingClick
+		//----------button Menu------
+		var butMenu = document.getElementById('sideMenu');
+		butMenu.addEventListener("click", function(e){
+			var sideNav= document.getElementById('sideNav');
+			sideNav.style.left = "0";
+			var closeMenu = document.getElementById('closeMenu');
+			//----------close Menu-----
+			closeMenu.addEventListener("click",function(e){
+				sideNav.style.left = "-261px";
+
+				},false);
+			//--------------------------
+
+			
+		},false);
+
+ 	};
+	</script>
+</body>
+</html>
